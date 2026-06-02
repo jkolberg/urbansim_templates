@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 try:
     import pathlib  # Python 3.4+
 except:

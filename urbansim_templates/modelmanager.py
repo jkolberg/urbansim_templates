@@ -1,9 +1,6 @@
-from __future__ import print_function
-
 import os
 import copy
 import pickle
-from collections import OrderedDict
 
 import orca
 from urbansim.utils import yamlio
@@ -234,7 +231,7 @@ def save_step_to_disk(step):
     # Save main yaml file
     headers = {'modelmanager_version': __version__}
 
-    content = OrderedDict(headers)
+    content = dict(headers)
     content.update({'saved_object': d})
     
     yamlio.convert_to_yaml(content, os.path.join(_disk_store, name+'.yaml'))

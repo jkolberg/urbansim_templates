@@ -1,5 +1,14 @@
 # UrbanSim Templates change log
 
+## 0.3 (not yet released)
+
+#### 0.3.dev0 (2026-06-02)
+
+- drops support for Python 2 and Python versions below 3.10
+- requires pandas 2.x (`pandas >= 2.3, < 3.0`) and modern numpy/statsmodels
+- switches packaging from `setup.py` to `pyproject.toml` (built with the `uv` package manager)
+- repoints `urbansim`, `orca`, and `choicemodels` dependencies to Python 3.10+ compatible forks
+
 ## 0.2 (not yet released)
 
 #### 0.2.dev9 (2020-05-15)

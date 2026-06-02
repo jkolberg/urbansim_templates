@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "urbansim_templates"
+version = "0.3.dev0"
+description = "UrbanSim extension for managing model steps"
+readme = "README.md"
+license = "BSD-3-Clause"
+requires-python = ">=3.10"
+authors = [
+    { name = "UrbanSim Inc.", email = "info@urbansim.com" },
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.3,<3.0",
+    "patsy>=0.5",
+    "statsmodels>=0.14",
+    "orca @ git+https://github.com/stefancoe/orca.git",
+    "urbansim @ git+https://github.com/stefancoe/urbansim.git@transition_updates",
+    "choicemodels @ git+https://github.com/jkolberg/choicemodels.git@py310",
+]
+
+[project.urls]
+Homepage = "https://github.com/udst/urbansim_templates"
+
+[dependency-groups]
+dev = [
+    "coverage",
+    "coveralls",
+    "pytest",
+    "sphinx",
+    "sphinx_rtd_theme",
+]
+
+[tool.setuptools.packages.find]
+exclude = ["*.tests", "*.tests.*"]
+
+[tool.uv.sources]
+pylogit = { git = "https://github.com/stefancoe/pylogit.git", branch = "pandas_23_max" }

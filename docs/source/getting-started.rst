@@ -55,8 +55,8 @@ Developer pre-releases of UrbanSim Templates can be installed using the Github U
 
 .. code-block:: python
 
-    pip install git+git://github.com/udst/choicemodels.git
-    pip install git+git://github.com/udst/urbansim_templates.git
+    pip install git+https://github.com/jkolberg/choicemodels.git@py310
+    pip install git+https://github.com/udst/urbansim_templates.git
 
 You can use the same command to upgrade.
 
@@ -70,7 +70,7 @@ If you'll be modifying the code, you can install UrbanSim Templates by cloning t
 
     git clone https://github.com/udst/urbansim_templates.git
     cd urbansim_templates
-    python setup.py develop
+    uv sync --dev
 
 Update it with ``git pull``.
 

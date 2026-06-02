@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import orca
 from urbansim.models.util import columns_in_formula, apply_filter_query
 from choicemodels.tools import MergedChoiceTable
@@ -481,7 +479,7 @@ class LargeMultinomialLogitStep(TemplateStep):
         intx_ops = self.mct_intx_ops
         mct_df = mct.to_frame()
         og_mct_index = mct_df.index.names
-        mct_df.reset_index(inplace=True)
+        mct_df = mct_df.reset_index()
         mct_df.index.name = 'mct_index'
 
         # merges
@@ -494,7 +492,7 @@ class LargeMultinomialLogitStep(TemplateStep):
 
             if intx_df.index.name == mct_df.index.name:
                 if not left_idx:
-                    intx_df.reset_index(inplace=True)
+                    intx_df = intx_df.reset_index()
                     if mct_df.index.name not in left_cols:
                         left_cols += [mct_df.index.name]
             elif mct_df.index.name in intx_df.columns:
@@ -542,7 +540,7 @@ class LargeMultinomialLogitStep(TemplateStep):
             mct_df[new_col] = mct_df.eval(expr, engine=engine)
 
         # restore original mct index
-        mct_df.set_index(og_mct_index, inplace=True)
+        mct_df = mct_df.set_index(og_mct_index)
 
         # handle NaNs and Nones
         if mct_df.isna().values.any():
